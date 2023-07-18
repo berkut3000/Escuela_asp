@@ -1,0 +1,27 @@
+﻿@model Escuela
+@*/* En razor el modelo es debilmente tipado, no hay nada que
+## valide que Escuela tenga o no tenga miembros. */*@
+@{
+    ViewData["Title"] = "Informacion Escuela";
+    //Layout = "Simple";
+    @*Cambiamos la plantilla por defecto*@
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1>Escuela: </h1>
+<h2>Nombre:@Model.Nombre</h2>
+<h3>Tipo de Escuela: @Model.TipoEscuela</h3>
+<address>
+    <p>Dirección: @Model.Dirección</p>
+    <p>País: @Model.Pais</p>
+    <p>Ciudad: @Model.Ciudad</p>
+</address>
+<p><strong>Año Fundación: @Model.AñoDeCreación</strong></p>
+
+@*<p><i>@ViewBag.CosaDinamica</i></p>*@
+<p><i>@ViewData["CosaDinamica"]</i></p>
+`@*Ambas son validas*@

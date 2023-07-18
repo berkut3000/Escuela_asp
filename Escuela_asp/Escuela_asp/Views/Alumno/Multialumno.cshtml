@@ -1,0 +1,27 @@
+﻿@*
+    Cambiar de LIst a IEnumerable para evitar errores de Compatiblidad en la pagina Web
+*@
+@model IEnumerable<Alumno>
+@*/* En razor el modelo es debilmente tipado, no hay nada que
+## valide que Alumno tenga o no tenga miembros. */*@
+@{
+    ViewData["Title"] = "Informacion Multi Alumno";
+    Layout = "Simple";
+    @*Cambiamos la plantilla por defecto*@
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1>@ViewData["Title"]</h1>
+
+<strong>Desde la vista parcial</strong>
+<partial name = "ListaObjetoEscuela" />
+
+@*<p><i>@ViewBag.CosaDinamica</i></p>*@
+<p><i>@ViewData["CosaDinamica"]</i></p>
+@*<p><i>@ViewData["Fecha"]</i></p>*@
+<p><i>@ViewBag.Fecha</i></p>
+`@*Ambas son validas*@
