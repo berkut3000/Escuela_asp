@@ -41,14 +41,40 @@ namespace Escuela_asp.Models
             var asignaturas = CargarAsignaturas(cursos);
 
             //x cada curso cargar alumnos
-            var alumnos =  CargarAlumnos(cursos);
+            var alumnos = CargarAlumnos(cursos);
 
             //x cargar evaluaciones - tarea
+
+            var evaluaciones = CargarEvaluaciones(cursos, asignaturas, alumnos);
 
             modelBuilder.Entity<Escuela>().HasData(escuela);
             modelBuilder.Entity<Curso>().HasData(cursos.ToArray());
             modelBuilder.Entity<Asignatura>().HasData(asignaturas.ToArray());
             modelBuilder.Entity<Alumno>().HasData(alumnos.ToArray());
+            modelBuilder.Entity<Evaluación>().HasData(evaluaciones.ToArray());
+        }
+
+        private static List<Evaluación> CargarEvaluaciones(List<Curso> cursos, List<Asignatura> asignaturas, List<Alumno> alumnos)
+        {
+            List<Evaluación> listaEvaluaciones = new List<Evaluación>();
+            foreach (var curso in cursos)
+            {
+                foreach (var asignatura in asignaturas)
+                {
+                    foreach (var alumno in alumnos)
+                    {
+                        Random rnd = new Random();
+                        int eval_rnd = rnd.Next(0, 100);
+                        List<Evaluación> tmplist = new List<Evaluación>
+                        {
+                            new Evaluación{Nombre = "Evaluacion", AlumnoId = alumno.Id, AsignaturaId = asignatura.Id, Nota = (float) eval_rnd/10 }
+                        };
+                        listaEvaluaciones.AddRange(tmplist);
+
+                    }
+                }
+            }
+            return listaEvaluaciones;
         }
 
         private List<Alumno> CargarAlumnos(List<Curso> cursos)
