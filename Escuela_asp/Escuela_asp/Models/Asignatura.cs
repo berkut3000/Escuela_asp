@@ -8,6 +8,6 @@ namespace Escuela_asp.Models
 
         public Curso Curso { get; set; }
 
-        public List<Evaluación> Evaluaciones { get; set; };
+        public List<Evaluación> Evaluaciones { get; set; }
     }
 }

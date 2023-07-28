@@ -9,11 +9,13 @@ namespace Escuela_asp.Models
         public List<Asignatura> Asignaturas{ get; set; }
         public List<Alumno> Alumnos{ get; set; }
 
-        public string Dirección { get; set; }
+        //public string Dirección { get; set; }
 
         public string EscuelaId { get; set; }
 
         public Escuela Escuela { get; set; }
+
+        public string Id { get; set; }
 
 
     }
