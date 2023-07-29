@@ -5,22 +5,17 @@ namespace Escuela_asp.Controllers
 {
     public class AsignaturaController : Controller
     {
+        [Route("[controller]")]
         [Route("Asignatura/Index")]
+        public IActionResult Index()
+        {
+            return View("Multiasignatura", _context.Asignaturas);
+        }
         [Route("Asignatura/Index/{asignaturaId}")]
-
         public IActionResult Index(string asignaturaId)
         {
-            if(!string.IsNullOrEmpty(asignaturaId))
-            {
-                var asignatura = from asig in _context.Asignaturas
-                                 where asig.Id == asignaturaId
-                                 select asig;
-                return View(asignatura.SingleOrDefault());
-            }
-            else
-            {
-                return View("Multiasignatura", _context.Asignaturas);
-            }
+            var asignatura = from asig in _context.Asignaturas where asig.Id == asignaturaId select asig;
+            return View(asignatura.SingleOrDefault());
         }
 
         public IActionResult Multiasignatura()
