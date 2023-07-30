@@ -1,9 +1,12 @@
-﻿@model Alumno
+﻿@*
+    Cambiar de LIst a IEnumerable para evitar errores de Compatiblidad en la pagina Web
+*@
+@model IEnumerable<Curso>
 @*/* En razor el modelo es debilmente tipado, no hay nada que
-## valide que Asignatura tenga o no tenga miembros. */*@
+## valide que Curso tenga o no tenga miembros. */*@
 @{
-    ViewData["Title"] = "Informacion Alumno";
-    //Layout = "Simple";
+    ViewData["Title"] = "Informacion Multi Curso";
+    Layout = "Simple";
     @*Cambiamos la plantilla por defecto*@
 }
 
@@ -14,16 +17,8 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<strong>Desde la vista normal</strong>
-<p>
-    Nombre:@Model.Nombre</br>
-    Id: @Model.Id
-</p>
-
 <strong>Desde la vista parcial</strong>
-<partial name = "ObjetoEscuelaSimple"/>
-
-
+<partial name = "ListaObjetoEscuela" />
 
 @*<p><i>@ViewBag.CosaDinamica</i></p>*@
 <p><i>@ViewData["CosaDinamica"]</i></p>
