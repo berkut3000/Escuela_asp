@@ -7,9 +7,9 @@ namespace Escuela_asp.Controllers
     public class AlumnoController : Controller
     {
         [Route("[controller]")]
-        [Route("Alumno/Index")]
+        //[Route("Alumno/Index")]
         [Route("Alumno/Index/{id}")]
-        [Route("Alumno/{id}")]
+        //[Route("Alumno/{id}")]
         public IActionResult Index(string? id)
         {
             if (!string.IsNullOrWhiteSpace(id))

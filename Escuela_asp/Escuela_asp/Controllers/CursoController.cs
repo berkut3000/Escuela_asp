@@ -7,9 +7,9 @@ namespace Escuela_asp.Controllers
     public class CursoController : Controller
     {
         [Route("[controller]")]
-        [Route("Curso/Index")]
+        //[Route("Curso/Index")]
         [Route("Curso/Index/{id}")]
-        [Route("Curso/{id}")]
+        //[Route("Curso/{id}")]
         public IActionResult Index(string? id)
         {
             if (!string.IsNullOrWhiteSpace(id))
@@ -27,6 +27,12 @@ namespace Escuela_asp.Controllers
         public IActionResult MultiCurso()
         {
             return View("MultiCurso", _context.Cursos);
+        }
+
+        public IActionResult Create()
+        {
+            ViewBag.Fecha = DateTime.Now;
+            return View();
         }
 
         private EscuelaContext _context;
