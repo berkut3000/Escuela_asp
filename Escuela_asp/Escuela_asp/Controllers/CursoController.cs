@@ -35,6 +35,19 @@ namespace Escuela_asp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            ViewBag.Fecha = DateTime.Now;
+            var escuela = _context.Escuelas.FirstOrDefault();
+            curso.EscuelaId = escuela.Id;
+
+            _context.Cursos.Add(curso);
+            _context.SaveChanges();
+
+            return View();
+        }
+
         private EscuelaContext _context;
         public CursoController(EscuelaContext context)
         {

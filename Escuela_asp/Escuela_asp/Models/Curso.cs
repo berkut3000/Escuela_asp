@@ -14,7 +14,7 @@ namespace Escuela_asp.Models
 
         public Escuela Escuela { get; set; }
 
-        public string Id { get; set; }
+        //public string Id { get; set; }
 
 
     }

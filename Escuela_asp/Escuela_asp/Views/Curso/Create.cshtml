@@ -1,0 +1,35 @@
+﻿@model Curso
+@*/* En razor el modelo es debilmente tipado, no hay nada que
+## valide que Asignatura tenga o no tenga miembros. */*@
+@{
+    ViewData["Title"] = "Creacion de Curso";
+    Layout = "Simple";
+    @*Cambiamos la plantilla por defecto*@
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre"/>
+    </div>
+    <div>
+        <label asp-for="Dirección"></label>
+        <input asp-for="Dirección" />
+    </div>
+    <div>
+        <label asp-for="Jornada"></label>
+        <input asp-for="Jornada" />
+    </div>
+
+
+    <input type="submit"/>
+</form>
+
+<p><i>@ViewBag.Fecha</i></p>
