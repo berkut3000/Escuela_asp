@@ -39,13 +39,22 @@ namespace Escuela_asp.Controllers
         public IActionResult Create(Curso curso)
         {
             ViewBag.Fecha = DateTime.Now;
-            var escuela = _context.Escuelas.FirstOrDefault();
-            curso.EscuelaId = escuela.Id;
+            if(ModelState.IsValid) // Validar el modelo.
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+                curso.EscuelaId = escuela.Id;
 
-            _context.Cursos.Add(curso);
-            _context.SaveChanges();
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
 
-            return View();
+
+
         }
 
         private EscuelaContext _context;
